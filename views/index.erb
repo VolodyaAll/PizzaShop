@@ -2,18 +2,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm">
-        <a href="/pizzas"><img src="<%= @product[0].path_to_image %>" alt="/" class="img-thumbnail"></a>
-        <a href="/pizzas"><%= @product[0].title %></a>
-    </div>
-    <div class="col-sm">
-        <a href="/pizzas"><img src="<%= @product[1].path_to_image %>" alt="/" class="img-thumbnail"></a>
-        <a href="/pizzas"><%= @product[1].title %></a>
-    </div>
-    <div class="col-sm">
-        <a href="/pizzas"><img src="<%= @product[2].path_to_image %>" alt="/" class="img-thumbnail"></a>
-        <a href="/pizzas"><%= @product[2].title %></a>
-    </div>
+  	<% @product.each do |p| %>
+  		  <div class="col-md-3">
+  		  	<a href="/pizzas"><%= p.title %></a>
+	        <a href="/pizzas"><img src="<%= p.path_to_image %>" alt="/" class="img-thumbnail"></a>
+	        <div>
+	        	<%= p.description %>
+	        </div>
+	        
+   		 </div>
+   	<% end %>
   </div>
 </div>
 
