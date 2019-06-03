@@ -1,3 +1,21 @@
 <h2>Welcome to pizza shop!</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <a href="/pizzas"><img src="<%= @product[0].path_to_image %>" alt="/" class="img-thumbnail"></a>
+        <a href="/pizzas"><%= @product[0].title %></a>
+    </div>
+    <div class="col-sm">
+        <a href="/pizzas"><img src="<%= @product[1].path_to_image %>" alt="/" class="img-thumbnail"></a>
+        <a href="/pizzas"><%= @product[1].title %></a>
+    </div>
+    <div class="col-sm">
+        <a href="/pizzas"><img src="<%= @product[2].path_to_image %>" alt="/" class="img-thumbnail"></a>
+        <a href="/pizzas"><%= @product[2].title %></a>
+    </div>
+  </div>
+</div>
+
 <button type="button" class="btn btn-primary" onclick="something()">Primary</button>
 
