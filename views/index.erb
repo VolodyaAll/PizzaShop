@@ -8,8 +8,16 @@
 	        <a href="/pizzas"><img src="<%= p.path_to_image %>" alt="/" class="img-thumbnail"></a>
 	        <div>
 	        	<%= p.description %>
-	        </div>
-	        
+	        </div>	   
+	        <div>	        
+	        	Price: <%= p.price %> RUB
+	        </div>	    
+	        <div>
+	        	Size: <%= p.size %> sm
+	        </div>	  
+	        <div>
+	        	<button type="button" class="btn btn-success">Add to cart</button>
+	        </div>	  
    		 </div>
    	<% end %>
   </div>
