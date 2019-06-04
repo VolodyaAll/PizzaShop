@@ -9,7 +9,7 @@ function something()
 	alert(x);
 }
 
-function add_to_cart()
+function add_to_cart(id)
 {
-	alert('Added');
+	alert('Added with id: ' + id);
 }
