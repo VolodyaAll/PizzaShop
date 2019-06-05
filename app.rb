@@ -17,12 +17,12 @@ end
 
 def parse_order_line orders_input
 
-	orders = orders_input.split(/,/)
+	items = orders_input.split(/,/)
 	arrres = []
 
-	orders.each do |order|
+	items.each do |order|
 		
-		cnt = order.split(/\=/)[1]
+		cnt = order.split(/=/)[1]
 		id = order.split(/=/)[0].split(/_/)[1]
 		arrtmp = [id, cnt]
 		arrres.push arrtmp	
@@ -38,6 +38,7 @@ get '/' do
 end
 
 get '/about' do
+
 	erb :about
 end
 
@@ -47,21 +48,25 @@ post '/cart' do
 
 	@items.each do |item|
 		item[0] = Product.find(item[0])		
-	end
-	
-	erb "#{@items[0][0].description}"
-	# @c = Order.new params[:order]
+	end	
 
-	# if @c.save
-	# 	erb :order
-	# else
-	# 	@error = @c.errors.full_messages.first
-	# 	erb :cart
-	# end
+	@c = Order.new params[:order]
+
+	if @c.save
+		erb :order
+	else
+		@error = @c.errors.full_messages.first
+		erb :cart
+	end
 end
 
 get '/cart' do	
 	@c = Order.new
+	orders_line = params[:orders]
+	@items = parse_order_line orders_line
+	@items.each do |item|
+		item[0] = Product.find(item[0])		
+	end
 	erb :cart
 end
 
