@@ -1,0 +1,50 @@
+<h2>Заказ</h2>
+<p>
+	<input id="product_1" type="text" readonly="true"/>
+</p>
+<p>
+	<input id="product_2" type="text" readonly="true"/>
+</p>
+<p>
+	<input id="product_3" type="text" readonly="true"/>
+</p>
+
+<form action="/cart" method="POST" role="form">
+  <div class="form-group">
+    <label>Ваше имя</label>
+    <input name="order[name]" type="text" class="form-control" placeholder="Введите ваше имя" value="<%= @c.name %>">
+  </div>
+
+  <div class="form-group">
+    <label>Ваш телефон</label>
+    <input name="order[phone]" type="text" class="form-control" placeholder="Введите ваш телефонный номер" value="<%= @c.phone %>">
+  </div>
+
+  <div class="form-group">
+    <label>Ваш адрес</label>
+    <input name="order[adress]" type="text" class="form-control" placeholder="Введите адрес" value="<%= @c.adress %>">
+  </div>
+
+  <div class="form-group">
+    <label>Ваш заказ</label>
+    <input name="order[order]" id="products" type="text" class="form-control" value="<%= @c.order %>">
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-primary">Подтвердить заказ</button>
+
+  
+
+</form>
+
+
+<script type="text/javascript">
+
+  $(function(){
+
+  	update_cart_orders();
+
+  });
+
+</script>

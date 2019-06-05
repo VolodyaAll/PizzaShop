@@ -64,8 +64,34 @@ function update_orders_input()
 {
 	var orders = cart_get_orders();
 	var number_of_orders = "Cart(" + cart_get_number_of_items() + ")";
+
 	$('#orders_input').val(orders);
 	$('#orders_button').val(number_of_orders);
+
+
 }
+
+function update_cart_orders()
+{
+	var orders = cart_get_orders();
+
+	$('#products').val(orders);
+	
+	for ( var i = 0, len =  window.localStorage.length; i < len; ++i ) 
+	{
+		var key =  window.localStorage.key(i);
+
+		if (key.indexOf('product_') == 0)
+		{
+			var order = '';
+			var value =  window.localStorage.getItem(key);	
+			order = key + "=" + value;
+			$('#' + key).val(order);
+		}
+		
+	}
+}
+
+
 
 
