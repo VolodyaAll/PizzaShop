@@ -15,6 +15,23 @@ class Order < ActiveRecord::Base
 	validates :adress, presence: true
 end
 
+def parse_order_line orders_input
+
+	orders = orders_input.split(/,/)
+	arrres = []
+
+	orders.each do |order|
+		
+		cnt = order.split(/\=/)[1]
+		id = order.split(/=/)[0].split(/_/)[1]
+		arrtmp = [id, cnt]
+		arrres.push arrtmp	
+		
+	end
+
+	return arrres
+end
+
 get '/' do
 	@product = Product.order(:id)
 	erb :index
@@ -25,14 +42,17 @@ get '/about' do
 end
 
 post '/cart' do
-	@c = Order.new params[:order]
+	orders_line = params[:orders]
+	@orders = parse_order_line orders_line
+	erb "#{@orders}"
+	# @c = Order.new params[:order]
 
-	if @c.save
-		erb :order
-	else
-		@error = @c.errors.full_messages.first
-		erb :cart
-	end
+	# if @c.save
+	# 	erb :order
+	# else
+	# 	@error = @c.errors.full_messages.first
+	# 	erb :cart
+	# end
 end
 
 get '/cart' do	
