@@ -43,8 +43,13 @@ end
 
 post '/cart' do
 	orders_line = params[:orders]
-	@orders = parse_order_line orders_line
-	erb "#{@orders}"
+	@items = parse_order_line orders_line
+
+	@items.each do |item|
+		item[0] = Product.find(item[0])		
+	end
+	
+	erb "#{@items[0][0].description}"
 	# @c = Order.new params[:order]
 
 	# if @c.save
