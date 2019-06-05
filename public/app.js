@@ -67,6 +67,7 @@ function update_orders_input()
 
 	$('#orders_input').val(orders);
 	$('#orders_button').val(number_of_orders);
+	$('#orders_input_cart').val(orders);
 
 
 }
@@ -90,6 +91,11 @@ function update_cart_orders()
 		}
 		
 	}
+}
+
+function order_is_accepted()
+{
+	alert("Order is accepted");
 }
 
 

@@ -33,7 +33,7 @@
 <form action="/order" method="POST" role="form">
   <div class="form-group">
 
-  	<input name="order[orders_input]" type="hidden" name="<%= @orders_input %>"/>
+  	<input id="orders_input_cart" name="order[orders_input]" type="hidden"/>
 
     <label>Your name</label>
     <input name="order[name]" type="text" class="form-control" placeholder="Введите ваше имя" value="<%= @c.name %>">
@@ -47,9 +47,9 @@
   <div class="form-group">
     <label>Your adress</label>
     <input name="order[adress]" type="text" class="form-control" placeholder="Введите адрес" value="<%= @c.adress %>">
-  </div> 
+  </div>  
 
-  <button type="submit" class="btn btn-primary">Place this order</button>
+  <button type="submit" class="btn btn-primary" onclick="order_is_accepted()">Place this order</button>
 
   
 

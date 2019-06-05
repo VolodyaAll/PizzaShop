@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_053555) do
     t.text "name"
     t.text "phone"
     t.text "adress"
-    t.text "order"
+    t.text "orders_input"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

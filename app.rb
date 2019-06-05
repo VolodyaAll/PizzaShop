@@ -43,13 +43,32 @@ get '/about' do
 end
 
 post '/cart' do
-	@orders_input = params[:orders]
+	@orders_input = params[:orders_input]
 	@items = parse_order_line @orders_input
 
 	@items.each do |item|
 		item[0] = Product.find(item[0])		
 	end	
 
+	@c = Order.new params[:order]
+	
+	erb :cart
+end
+
+get '/cart' do	
+	@orders_input = params[:order][orders_input]
+	@items = parse_order_line @orders_input
+
+	@items.each do |item|
+		item[0] = Product.find(item[0])		
+	end
+
+	@c = Order.new params[:order]
+	
+	erb :cart
+end
+
+post '/order' do
 	@c = Order.new params[:order]
 
 	if @c.save
@@ -60,9 +79,8 @@ post '/cart' do
 	end
 end
 
-get '/cart' do	
-	@c = Order.new
-	
-	erb :cart
+get '/all_orders' do
+  @o = Order.order(:id)
+  erb :all_orders
 end
 
