@@ -49,7 +49,9 @@
     <input name="order[adress]" type="text" class="form-control" placeholder="Введите адрес" value="<%= @c.adress %>">
   </div>  
 
-  <button type="submit" class="btn btn-primary" onclick="order_is_accepted()">Place this order</button>
+  <button type="submit" class="btn btn-success" onclick="order_is_accepted()">Place this order</button>
+
+  <button type="submit" class="btn btn-danger" onclick="return cancel_order()">Cancel order</button>
 
   
 

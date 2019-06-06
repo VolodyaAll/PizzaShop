@@ -98,6 +98,9 @@ function order_is_accepted()
 	alert("Order is accepted");
 }
 
-
-
+function cancel_order()
+{
+	alert("Order is canceled");
+	return false;
+}
 

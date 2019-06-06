@@ -80,7 +80,7 @@ post '/order' do
 end
 
 get '/all_orders' do
-  @o = Order.order(:id)
+  @o = Order.order(id: :desc)
   erb :all_orders
 end
 
