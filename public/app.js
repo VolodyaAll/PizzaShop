@@ -91,8 +91,8 @@ function cancel_order()
 
 	update_orders_input();
   	update_cart_orders();
-
-	alert("Order is canceled");
+	
+	$('#cart').text('Your cart is now empty');
 
 	return false;
 }
