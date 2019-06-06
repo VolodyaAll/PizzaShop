@@ -1,14 +1,3 @@
-function something()
-{
-	var x = window.localStorage.getItem('bbb');
-
-	x = x * 1 + 1;
-
-	window.localStorage.setItem('bbb', x);
-
-	alert(x);
-}
-
 function add_to_cart(id)
 {	
 	var key = 'product_' + id;	
@@ -17,9 +6,7 @@ function add_to_cart(id)
 	x = x * 1 + 1;
 	window.localStorage.setItem(key, x);
 
-	update_orders_input();
-
-	alert('Items in your cart: ' + cart_get_number_of_items())
+	update_orders_input();	
 }
 
 function cart_get_number_of_items()
@@ -100,7 +87,13 @@ function order_is_accepted()
 
 function cancel_order()
 {
+	window.localStorage.clear();
+
+	update_orders_input();
+  	update_cart_orders();
+
 	alert("Order is canceled");
+
 	return false;
 }
 
