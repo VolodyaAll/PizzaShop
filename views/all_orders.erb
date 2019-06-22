@@ -9,15 +9,15 @@
       <th scope="col">Order</th>
     </tr>
   </thead>
-  <tbody>  	
-  	<% @o.each do |order| %>
-	  	<tr>
-	      <th scope="row"><%= order.id %></th>
-	      <td><%= order.name %></td>
-	      <td><%= order.phone %></td>
-	      <td><%= order.adress %></td>
-        <td><%= order.orders_input %></td>	     
-	    </tr>	   
-  	<% end %>   	
+  <tbody>
+    <% @o.each do |order| %>
+      <tr>
+        <th scope="row"><%= order.id %></th>
+        <td><%= order.name %></td>
+        <td><%= order.phone %></td>
+        <td><%= order.adress %></td>
+        <td><%= order.orders_input %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

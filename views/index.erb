@@ -2,29 +2,25 @@
 
 <div class="container">
   <div class="row">
-  	<% @product.each do |p| %>
-  		  <div class="col-md-3">
-  		  	<a href="/pizzas"><%= p.title %></a>
-	        <a href="/pizzas"><img src="<%= p.path_to_image %>" alt="/" class="img-thumbnail"></a>
-	        <div>
-	        	<%= p.description %>
-	        </div>	   
-	        <div>	        
-	        	Price: <%= p.price %> RUB
-	        </div>	    
-	        <div>
-	        	Size: <%= p.size %> sm
-	        </div>	  
-	        <div>
-	        	<button type="button" class="btn btn-success" onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
-	        </div>	  
-   		 </div>
-   	<% end %>
+    <% @product.each do |p| %>
+      <div class="col-md-3">
+        <a href="/pizzas"><%= p.title %></a>
+        <a href="/pizzas"><img src="<%= p.path_to_image %>" alt="/" class="img-thumbnail"></a>
+        <div>
+          <%= p.description %>
+        </div>
+        <div>
+          Price: <%= p.price %> RUB
+        </div>
+        <div>
+          Size: <%= p.size %> sm
+        </div>
+        <div>
+          <button type="button" class="btn btn-success" onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
 <button type="button" class="btn btn-primary" onclick="something()">Primary</button>
-
-
-
-
